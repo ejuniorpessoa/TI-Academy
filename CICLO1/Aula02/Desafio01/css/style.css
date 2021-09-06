@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+body {	
+	margin: 0px;
+	padding: 0px;
+	background-color: grey;
+}
+
+main {
+	width: 50%;
+	height: 500px;
+	margin: 40px auto;
+	background-color: #00897B;
+	display: flex;
+	flex-direction: column; /* coluna */
+	justify-content: space-between;/* espaçamentos iguais nas extremidades */
+	align-items: flex-start; /*alinhado ao começo */
+	padding: 5px;
+}
+
+div {
+	font: 30px bolder Arial, Helvética, sans-serif;
+}
+
+.config {
+	width: 150px;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.quadrado {
+	background-color: #9C27B0;
+}
+
+.circle {
+	border-radius: 100%;
+	background: #F9A825;
+	align-self: flex-end;/* config nele mesmo, no caso na div */
+}

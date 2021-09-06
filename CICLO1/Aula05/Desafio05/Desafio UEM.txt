@@ -1,0 +1,25 @@
+http://escrita.uem.br/
+
+Desenvolver um Layout
+
+Reestrutura de página
+
+Obedecer o nome do site : Interação e Escrita
+
+1 header com imagem
+
+2 menu 
+
+3 texto como referencia dps do menu
+
+4 pesquisadores com links em divs!
+
+com estrutura de links em lista e flex-box centralizando 2 lugares
+
+reorganizar texto quando diminuir a tela midia query @ 700 px o menu some e flex-direction de columns vai para row
+
+usar target="_selfie" e rel="internal" para motores de buscas
+
+Grupo de Pesquisa Interação e Escrita
+
+Font Great Vibes = https://fonts.google.com/specimen/Great+Vibes?preview.text=Grupo%20de%20Pesquisa%20Intera%C3%A7%C3%A3o%20e%20Escrita&preview.text_type=custom&category=Handwriting#standard-styles

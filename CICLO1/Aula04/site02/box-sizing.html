@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Box-sizing e seletores globais</title>
+</head>
+<style>
+	:root {/* manda fazer alguma coisa, uma "variavel" / raiz do documento ou seja o HTML*/
+		--cor-padrao : lightblue; /* padrao -- */
+		--font-title: Verdana, arial, cursive;
+		--font-size:  18px;
+	}
+
+	* {/* seletor global */
+		margin: 0;
+		box-sizing: border-box;
+		padding: 0;
+	}
+
+	h1, h2, h3, ul, p {
+		font-family: var(--font-tittle);
+		font-size: var(--font-size);
+		background: var(--cor-padrao);
+	}
+
+	div#teste{
+		width: 300px;
+		height: 200px;
+		background: cyan;
+		border: 1px solid black;
+		padding: 3px;
+	}
+
+	p {
+		width: 300px;
+		height: auto;
+		padding: 0;		
+		margin: 0;
+	}
+
+	div#box {
+		width: 300px;
+		height: 200px;
+		background: cyan;
+		border: 1px solid black;
+		margin-top: 5px;
+	}
+
+</style>
+<body>
+	<h1>TESTE1</h1>
+	<h2>TESTE2</h2>
+	<h3>TESTE3</h3>
+
+	<div id="teste">
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing, elit. Illo vitae temporibus dolorem aliquid magnam, fugit accusamus ullam nisi quasi perferendis maiores velit minima, eius facere error sint adipisci quo mollitia!
+		</p>
+	</div>
+
+	<div id="box">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque suscipit molestiae quo officiis, repudiandae vero ullam nesciunt, accusamus, temporibus dignissimos saepe voluptates, eaque a. Minima assumenda fugit deserunt aliquid, facere.
+	</div>	
+</body>
+</html>

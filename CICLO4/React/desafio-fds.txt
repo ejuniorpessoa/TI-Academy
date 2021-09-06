@@ -1,0 +1,5 @@
+listar o cliente, escolher um e escolher o cliente
+dps todos os pedidos, listar os pedidos e selecionar um pedido em especial
+USAR PASSAGEM DE PARAMETRO NO EXERCÍCIO
+
+EXIBIR UM PEDIDO OU LISTAR OS CLIENTES E EXIBIR UM CLIENTE EM ESPECÍFICO!

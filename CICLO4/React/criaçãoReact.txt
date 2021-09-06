@@ -1,0 +1,61 @@
+https://reactrouter.com/web/guides/quick-start/installation
+
+--------------- Criação Projeto React ---------------
+
+npx create-react-app front-end   - "nome da pasta" <-- sem aspas
+cd "nome"
+npm start
+
+Componentes começa com Maiúscula, exemplo : Home
+
+
+Adicionar rota a aplicação, usando uma dependência: 
+
+Installation : npm install react-router-dom
+
+
+------------------------Exercício ---------------------
+criar uma pasta para cada item
+
+Home
+VisualizarCliente
+
+cria novo Route, Export e Import
+
+<Route exact path="/" component={Home}/>
+
+export const VisualizarCliente = () =>{
+    return(
+        <div>
+            <h1>Página do Cliente!</h1>
+        </div>
+    )
+}
+
+--------------------------------------------------------
+Aula 02 -
+https://reactstrap.github.io/
+
+npm install --save bootstrap
+npm install --save reactstrap react react-dom
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+https://reactstrap.github.io/components/alerts/
+
+---------------------------------------------------
+
+criação MENUS 
+
+https://reactstrap.github.io/components/navbar/
+
+
+TABELAS STRIPED ROWS- https://reactstrap.github.io/components/tables/
+
+
+---------------------------------------------------
+AXIOS - FICA SALVO NA PROXIMA UTILIZAÇÃO!
+
+npm install axios
+
+npm install --save axios

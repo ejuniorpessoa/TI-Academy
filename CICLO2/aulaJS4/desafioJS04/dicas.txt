@@ -1,0 +1,4 @@
+incremento de valores sempre é looping
+ou uma coleção de dados
+
+Arrays melhor é For in e For of

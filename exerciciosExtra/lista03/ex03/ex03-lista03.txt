@@ -1,0 +1,20 @@
+
+var number = "string";
+
+while(typeof(number)!="number"){
+    var number = prompt("Digite aqui um número para saber se é par ou ímpar: ");
+    if(isNaN(+number)){ // se não for nº sera verdadeiro
+        console.log("Não é um número!");
+    } else {        
+        number = parseInt(number);
+        if(number == "string"){
+            console.log("Você digitou um carácter inválido! ");
+        } else {
+            if(number%2 == 0){
+                console.log("Você digitou um número par!");
+            } else {    
+                console.log("Você digitou um número ímpar!");
+            } 
+        }
+    } 
+}

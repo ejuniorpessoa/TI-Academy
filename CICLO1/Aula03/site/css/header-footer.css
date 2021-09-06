@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+body {
+    margin: 0;
+}
+
+header, footer{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid black;
+    background: tomato;
+    position: fixed; /* para o rodapé ficar fixo na pagina em baixo*/
+}
+header {
+    top: 0; /* pra grudar acima */
+}
+footer{
+    border-bottom: 0;
+    border-top: 1px solid black;		
+    height: 80px;
+    bottom: 0px;
+}
+main {
+    width: 100%;
+    height: auto;
+    background: cyan;
+    margin-top: 40px;
+}
+#content {
+    width: 80%;
+    margin: auto; /* centralizar o conteudo */
+}

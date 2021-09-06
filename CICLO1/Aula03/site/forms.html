@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Estrutura de Formulários em HTML</title>
+	<link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+	<form name="frmCadastro" method="get"><!--formulario pai -->
+
+		<input class="txt" type="text" placeholder="Digite seu login">	<!-- digitar e-mail por exemplo ou usuario-->		
+
+		<input class="txt" type="password" placeholder="Digite a sua senha"> <!--  caixa de senha -->
+
+		<select> <!-- pai dos options -->
+			<option value="">Selecione</option><!-- só escolhe 1 -->
+			<option value="">Banana</option>
+			<option value="">Laranja</option>
+			<option value="">Abacate</option>
+			<option value="">Carne</option>
+			<option value="">Batata</option>
+		</select>
+
+		<input type="checkbox" name=""><!-- pode ser escolhido mais de um -->
+		<input type="checkbox">
+
+		<input type="radio" name="teste" value="" checked="">
+		<input type="radio" name="teste" value="">
+		<input type="radio" name="teste" value="">
+
+		<input class="btn" type="submit" name=""><!-- enviar / só funciona dentro do formulario, caso contrario perde a função-->
+	</form>	
+</body>
+</html>

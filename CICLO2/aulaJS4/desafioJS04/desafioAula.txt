@@ -1,0 +1,3 @@
+- Excluir um produto da cesta do cliente;
+
+-Para estudos futuros "Expressões Regulares"

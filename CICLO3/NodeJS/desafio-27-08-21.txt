@@ -1,0 +1,3 @@
+usar a mesma forma do Postman passada em aula
+
+inserir: novo cliente e inserir um novo pedido

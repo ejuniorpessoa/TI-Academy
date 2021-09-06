@@ -1,0 +1,92 @@
+CRIAÇÃO DE TABELA :
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+
+----------------------------------------------------------------
+
+cpf
+nome
+data de nasc
+data desde quando cliente
+
+tabela arquivo que tem o nome do objeto. ex: cliente, serviço, etc
+
+
+objetos tem caracteristicas próprias!
+
+HasOne = um para um
+BelongsTo = muitos para um
+HasMany = um para muitos (tentar trabalhar nelas, ex: Serviços e Pedidos).
+BelongsToMany = muitos para muitos
+
+-----------------------------------------------------------
+MIGRAÇÃO :
+npx sequelize-cli db:migrate:undo:all --to 20210826213157-create-pedido.js
+
+npx sequelize-cli db:migrate:undo:all --to XXXXXXXXXXXXXX-create-posts.js
+
+npx sequelize-cli db:migrate:undo
+
+npx sequelize-cli db:migrate
+--------------------------------------
+Você pode voltar ao estado inicial desfazendo todas as migrações com o comando db: migrate: undo: all. Você também pode reverter para uma migração específica passando seu nome na opção --to.
+
+
+npx sequelize-cli db:migrate:undo:all --to 20210826213157-create-pedido.js
+
+-----------------------------------------------------------
+
+Nodemon -
+
+1º vez: npm install -g nodemon
+
+save: npm install --save-dev nodemon
+
+stop server : Ctrl + C
+
+Ativar Servidor: node nomeArquivo.js
+
+--------------------------------------------------------------
+// Find all users
+
+const users = await User.findAll();
+console.log(users.every(user => user instanceof User)); // true
+console.log("All users:", JSON.stringify(users, null, 2));
+SELECT * FROM ...
+
+
+Ordering and Grouping
+Ordering
+
+Count - https://sequelize.org/master/manual/model-querying-basics.html#simple-insert-queries
+Grouping
+--------------------------------------------------
+
+DIFERENÇA
+
+.get = mostra o que esta no servidor
+.post = inserir o que o usuario colocou
+----------------------------------------------------
+
+EXERCICIO -
+
+max, min and sum
+Sequelize also provides the max, min and sum convenience methods.
+
+Let's assume we have three users, whose ages are 10, 5, and 40.
+
+await User.max('age'); // 40
+await User.max('age', { where: { age: { [Op.lt]: 20 } } }); // 10
+await User.min('age'); // 5
+await User.min('age', { where: { age: { [Op.gt]: 5 } } }); // 10
+await User.sum('age'); // 55
+
+
+			regra \/         valor do id \/ (req.params.id) 
+
+await User.sum('valor', { where: { ClienteId: { [Op.gt]: 5 } } }); // 50
+
+
+------------------------------------------------------------------------
+FINDS - 
+
+https://sequelize.org/master/manual/model-querying-finders.html#-code-findone--code-

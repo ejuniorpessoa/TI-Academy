@@ -1,0 +1,3 @@
+1º fazer 2 colunas com os paragrafos;
+2º colocar quadrado 30x30 fixo direita inferior;
+3º usar @media screen para quando menor que 700px em 1 coluna / fazer o quadrado da tela desaparecer "display:none;"

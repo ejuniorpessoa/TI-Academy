@@ -1,0 +1,12 @@
+// referência de documentação: https://developer.mozilla.org/pt-BR/ 
+
+//Desafio
+- 3 caixas de texto e 1 botão
+
+- 1º caixa de texto recebe um valor
+- 2º caixa de texto recebe outro valor
+- 3º caixa de texto o usuário dá um resulado
+- Clicar no botão e enviar msg dizendo que está certo ou errado a soma
+
+;)
+

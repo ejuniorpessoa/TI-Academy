@@ -1,0 +1,126 @@
+@charset "UTF-8";
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #2196f8;
+}
+
+header {
+	position: absolute;
+	z-index: 0;
+	width: 100vw;
+	height: 200px;
+	flex-direction: column;
+	border-bottom: 5px solid white;
+}
+
+header > h1 {
+	padding:  5px;
+	color: white;
+	text-align: center;
+	margin-top: 40px;
+}
+
+header > h2 {
+	color: white ;
+	width: 100vw ;
+	height: 40px ;
+	font:  normal bold 16px Verdana, Arial, cursive;
+	text-align: center;
+}
+
+header > h1, h2 {
+	font-family: Verdana, arial, cursive;
+}
+
+main {
+	position: absolute;
+	z-index: 100;
+	width: 100vw;
+	height: auto;
+	top: 250px;	
+	background: #2196f8;
+}
+
+div#conteudo-geral {
+	width: 80vw;	
+	margin: 0 auto;
+	flex-direction: column;
+}
+
+.box-custom {
+	width: 100%;
+	height: auto;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+form {
+	width: 400px;
+	height: auto;
+	padding: 10px;
+}
+
+.flex {
+	display: flex;
+}
+
+.justify-content {
+	justify-content: center;
+}
+
+.display-btn {
+	width: 100%;
+	height: auto;
+	padding: 4px;
+}
+
+.btn {
+	padding: 8px;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid black;
+	background: green;
+	border: none;
+}
+
+
+form > label {
+	padding: 5px;
+	height: auto;
+	flex-direction: column;
+	font: normal bold 14px Verdana, Arial, sans-serif;
+}
+
+form > label > input[type=text] {
+	font: normal normal 14px Verdana, Arial, serif;
+	border: none;
+	padding: 4px;	
+}
+
+#logo-principal {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	background: white;
+	align-items: center;
+}
+
+#logo-principal .logo {
+	font-size: 70px;
+}
+
+#content-base {
+	width: 100%;
+	height: auto;
+	position: absolute;	
+	z-index: 105;
+	top: 140px;
+}

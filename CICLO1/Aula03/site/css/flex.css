@@ -1,0 +1,25 @@
+body {
+    margin: 0px;
+}
+
+main {
+    background: darkred;
+    width: 100%; /* tamanho total do dispositivo */
+    height: auto; /* tamanho do conteúdo interno do mesmo conteudo filho */
+    display: flex; /* informa que o main tem uma propriedade flex */
+    flex-direction: row; /* direçao em linha horizontal */
+    justify-content: space-between;
+    
+}
+
+div {
+    width: 50px;
+    height: 50px;
+    background: darkblue;
+    margin: 20px;
+}
+
+.tam-diferente {
+    width: 200px;
+    height: 200px;
+}
