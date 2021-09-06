@@ -79,7 +79,7 @@ app.get('/totalclientes', async (req, res) => {
 });
 
 //Total Pedidos
-app.get('/todospedidos', async (req, res) => {
+app.get('/listapedidos', async (req, res) => {
     await pedido.findAll({
         raw: true
     }).then((pedido) => {
@@ -234,7 +234,7 @@ app.get('/buscapedidoporcliente', async (req, res) => {
 
 //-------------------Exercicio-02-------------------
 //Consulta Cliente
-app.get('/consultaClienteId/:id', async (req, res) => {
+app.get('/cliente/:id', async (req, res) => {
     await cliente.findByPk(req.params.id).then((cliente) => {
         return res.json({ cliente });
     });

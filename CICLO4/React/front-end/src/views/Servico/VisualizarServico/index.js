@@ -41,9 +41,9 @@ export const VisualizarServico = () => {
     return (
         <div className="p-3">{/* Criação de Tabelas puxando a do banco*/}
             <Container>
-                {/* parecido com um If ? SENAO : Else*/}                
+                {/* parecido com um If ? SENAO : Else*/}
                 {/* Inserir antes da tabela para mostra na tela! */}
-                {status.type === "Error" ? <Alert color="danger">{status.message}</Alert> : ""}                
+                {status.type === "Error" ? <Alert color="danger">{status.message}</Alert> : ""}
 
                 <Table striped dark hover>
                     <thead>{/* cabeçalho */}
@@ -64,9 +64,9 @@ export const VisualizarServico = () => {
                                 <td>{item.descricao}</td>{/* descrição */}
                                 <td className="text-center">
                                     {/* criação de botao / item.id puxa id servico*/}
-                                    <Link to={"/servico/"+item.id}
-                                    /* botao, quando passar mouse, botao pequeno */
-                                    className="btn btn-outline-primary btn-sm">Consultar</Link>
+                                    <Link to={"/servico/" + item.id}
+                                        /* botao, quando passar mouse, botao pequeno */
+                                        className="btn btn-outline-primary btn-sm">Consultar</Link>
                                 </td>
                             </tr>
                         ))}
