@@ -42,7 +42,7 @@ app.post('/servicos', async (req, res) => {// criar novo serviço
     );
     res.send('Um novo serviço foi inserido!');
     /* FUNÇÃO AGUARDAR */
-    await aguardar(300000000); /* milisegundos */
+    await aguardar(3000); /* milisegundos */
     /* recebe como parâmetro os ms */
     function aguardar(ms) {
         /* Promise é utilizado quando tem uma resposta que envolve o then e o catch */

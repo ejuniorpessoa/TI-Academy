@@ -59,3 +59,11 @@ AXIOS - FICA SALVO NA PROXIMA UTILIZAÇÃO!
 npm install axios
 
 npm install --save axios
+
+------------------------------------------------------
+CADASTROS -
+
+https://reactstrap.github.io/components/form/
+
+
+DTO = Dados 

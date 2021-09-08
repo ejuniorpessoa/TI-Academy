@@ -115,6 +115,7 @@ export const CadastrarServico = () => {
                         <Spinner size="sm" color="info" />
                         </Button> : /* <- caso contrario\/*/
                         <Button type="submit" outline color="info">Cadastrar</Button>}
+                        {/* criar um botao de reset */}
                 </Form>
 
             </Container>
