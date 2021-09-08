@@ -35,12 +35,23 @@ app.post('/pedidos', async (req, res) => {
 // ------------------Aula-02-----------------
 //usamos post no Postman que pega fora da aplicação
 app.post('/servicos', async (req, res) => {// criar novo serviço
-    let create = await servico.create(// forma estática
-        req.body //requisição no corpo da pagina, não é mais objeto             
-    );
-    res.send('Um novo serviço foi inserido!');// gerar isso se funcionou
-});// função que nao precisa de retorno async
 
+    await servico.create(// forma estática
+        req.body //requisição no corpo da pagina, não é mais objeto 
+        /* NECESSITA USAR O THEN E O CATCH PARA O PROMISE*/
+    );
+    res.send('Um novo serviço foi inserido!');
+    /* FUNÇÃO AGUARDAR */
+    await aguardar(300000000); /* milisegundos */
+    /* recebe como parâmetro os ms */
+    function aguardar(ms) {
+        /* Promise é utilizado quando tem uma resposta que envolve o then e o catch */
+        return new Promise((resolve) => {
+            /* função de tempo do Promise , precisa importar / resolve é o retorno dela*/
+            setTimeout(resolve.ms);
+        });
+    };    
+});
 //---------------Serviços-por-ordem-de-nomes---------------
 app.get('/listaservicos', async (req, res) => {
     await servico.findAll({//<-- método de busca "findAll()""

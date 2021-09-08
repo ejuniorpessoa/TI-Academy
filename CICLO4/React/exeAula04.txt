@@ -1,0 +1,2 @@
+1-Pausar a execução no backend por algum tempo
+2-Bloquear no front end para o usuarío não conseguir clicar

@@ -45,6 +45,18 @@ export const VisualizarServico = () => {
                 {/* Inserir antes da tabela para mostra na tela! */}
                 {status.type === "Error" ? <Alert color="danger">{status.message}</Alert> : ""}
 
+                <div className="d-flex">
+                    <div className="mr-auto p-2">
+                        <h1>Informações dos Serviços</h1>
+                    </div>
+                    <div className="p-2">
+                        <Link to="/cadastrarservico"
+                            className="btn btn-outline-primary btn-sm">
+                            Cadastrar
+                        </Link>
+                    </div>
+                </div>
+
                 <Table striped dark hover>
                     <thead>{/* cabeçalho */}
                         <tr>

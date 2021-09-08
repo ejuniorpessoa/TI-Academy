@@ -6,6 +6,7 @@ import { Menu } from './components/Menu';
 import { Servico } from './views/Servico/Servico';
 import { Cliente } from './views/Cliente/Cliente';
 import { VisualizarCliente } from './views/Cliente/VisualizarCliente';
+import { CadastrarServico } from './views/Servico/CadastrarServico';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" component={Home} /> {/* "/" no final fecha */}
           <Route path="/visualizarservico" component={VisualizarServico} />
           <Route path="/servico/:id" component={Servico} />
+          <Route path="/cadastrarservico" component={CadastrarServico} />
           <Route path="/visualizarcliente" component={VisualizarCliente} />
           <Route path="/cliente/:id" component={Cliente} />
         </Switch>
