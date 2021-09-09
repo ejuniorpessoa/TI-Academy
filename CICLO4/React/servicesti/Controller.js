@@ -36,22 +36,30 @@ app.post('/pedidos', async (req, res) => {
 //usamos post no Postman que pega fora da aplicação
 app.post('/servicos', async (req, res) => {// criar novo serviço
 
+    /* FUNÇÃO AGUARDAR */
+    await aguardar(3000);
+    function aguardar(ms) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+        });
+    };
+
     await servico.create(// forma estática
         req.body //requisição no corpo da pagina, não é mais objeto 
-        /* NECESSITA USAR O THEN E O CATCH PARA O PROMISE*/
-    );
-    res.send('Um novo serviço foi inserido!');
-    /* FUNÇÃO AGUARDAR */
-    await aguardar(3000); /* milisegundos */
-    /* recebe como parâmetro os ms */
-    function aguardar(ms) {
-        /* Promise é utilizado quando tem uma resposta que envolve o then e o catch */
-        return new Promise((resolve) => {
-            /* função de tempo do Promise , precisa importar / resolve é o retorno dela*/
-            setTimeout(resolve.ms);
+    ).then(() => {
+        return res.json({
+            type: "success",
+            message: "Serviço foi criado com sucesso."
         });
-    };    
+    }).catch((erro) => {
+        return res.status(400).json({
+            type: "error",
+            message: "Erro na criação de serviço."
+        });
+    });    
 });
+
+
 //---------------Serviços-por-ordem-de-nomes---------------
 app.get('/listaservicos', async (req, res) => {
     await servico.findAll({//<-- método de busca "findAll()""
@@ -314,6 +322,23 @@ app.delete('/apagarcliente/:id', (req, res) => {
         });
     });
 });
+
+app.delete('/apagarservico/:id',(req,res)=>{
+    servico.destroy({
+        where: {id:req.params.id}
+    }).then(function(){
+        return res.json({
+            error: false,
+            message: "Serviço excluído com sucesso."
+        });
+    }).catch(function(){
+        return res.status(400).json({
+            error: true,
+            message: "Não foi possível excluir o serviço."
+        });
+    });
+});
+
 //--------------------Desafio-Aula-04--------------------
 //Faça uma rota que liste todos os pedidos de um cliente
 

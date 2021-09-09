@@ -8,7 +8,7 @@ export const Servico = (props) => {/* props = propriedades passadas */
     console.log(props.match.params.id);/* match relaciona os parâmetros*/
 
     const [data, setData] = useState([]);/* array com 2 informações, "valor e valor atribuido a ele" */
-    const [id, setID] = useState(props.match.params.id)/* informar que esse cara foi passado como paramentro, dado inicial é o "ID" */
+    const [id] = useState(props.match.params.id)/* informar que esse cara foi passado como paramentro, dado inicial é o "ID" */
 
     useEffect(() => { /* useEffect = Vai criar e instanciar um objeto */
         const getServico = async () => {
@@ -34,8 +34,10 @@ export const Servico = (props) => {/* props = propriedades passadas */
                             className="btn btn-outline-primary btn-sm">
                             Serviços
                         </Link>
+                        <Link to={"/editarservico/" + data.id}
+                            className="btn btn-outline-warning btn-sm m-1">Editar</Link>
                     </div>
-                </div>
+                </div>                
                 <dl className="row">
                     <dt className="col-sm-3">Nome</dt>
                     <dd className="col-sm-9">{data.nome}</dd>

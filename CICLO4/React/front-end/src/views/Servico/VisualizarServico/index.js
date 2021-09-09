@@ -38,6 +38,26 @@ export const VisualizarServico = () => {
         getServicos();
     }, []);/* retorno de dados no Array!!! Caso não coloque, executa sem parar */
 
+    /* FUNÇÃO DE APAGAR */
+    const apagarServico = async (idServico) => {
+        console.log(idServico);
+
+        const headers = {
+            "Content-Type": "application/json"
+        }
+        await axios.delete(api + "/apagarservico/" + idServico, { headers })
+            .then((response) => {
+                console.log(response.data.error);
+                getServicos();/* <-- função para atualizar a página */
+            })
+            .catch(() => {
+                setStatus({
+                    type: "error",
+                    message: "Erro: Não foi possível se conectar a API"
+                });
+            })
+    }
+
     return (
         <div className="p-3">{/* Criação de Tabelas puxando a do banco*/}
             <Container>
@@ -78,7 +98,12 @@ export const VisualizarServico = () => {
                                     {/* criação de botao / item.id puxa id servico*/}
                                     <Link to={"/servico/" + item.id}
                                         /* botao, quando passar mouse, botao pequeno */
-                                        className="btn btn-outline-primary btn-sm">Consultar</Link>
+                                        className="btn btn-outline-primary btn-sm m-1">Consultar</Link>
+                                    <Link to={"/editarservico/" + item.id}
+                                        className="btn btn-outline-warning btn-sm m-1">Editar</Link>
+                                    {/* Delete através do ID */}
+                                    <span className="btn btn-outline-danger btn-sm m-1"
+                                        onClick={() => apagarServico(item.id)}>Excluir</span>
                                 </td>
                             </tr>
                         ))}

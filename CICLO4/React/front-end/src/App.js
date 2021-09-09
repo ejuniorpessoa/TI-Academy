@@ -7,6 +7,7 @@ import { Servico } from './views/Servico/Servico';
 import { Cliente } from './views/Cliente/Cliente';
 import { VisualizarCliente } from './views/Cliente/VisualizarCliente';
 import { CadastrarServico } from './views/Servico/CadastrarServico';
+import { EditarServico } from './views/Servico/EditarServico';
 
 function App() {
   return (
@@ -14,11 +15,11 @@ function App() {
       <Menu />
       <Router>
         <Switch>
-          {/* exact / exatamente a barra // path a rota de acesso */}
-          <Route exact path="/" component={Home} /> {/* "/" no final fecha */}
+          <Route exact path="/" component={Home} />
           <Route path="/visualizarservico" component={VisualizarServico} />
           <Route path="/servico/:id" component={Servico} />
           <Route path="/cadastrarservico" component={CadastrarServico} />
+          <Route path="/editarservico/:id" component={EditarServico} />
           <Route path="/visualizarcliente" component={VisualizarCliente} />
           <Route path="/cliente/:id" component={Cliente} />
         </Switch>

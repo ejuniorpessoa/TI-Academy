@@ -8,7 +8,7 @@ export const Cliente = (props) => {/* props = propriedades passadas */
     console.log(props.match.params.id);/* match relaciona os parâmetros*/
 
     const [data, setData] = useState([]);/* array com 2 informações, "valor e valor atribuido a ele" */
-    const [id, setID] = useState(props.match.params.id)/* informar que esse cara foi passado como paramentro, dado inicial é o "ID" */
+    const [id] = useState(props.match.params.id)/* informar que esse cara foi passado como paramentro, dado inicial é o "ID" */
 
     useEffect(() => { /* useEffect = Vai criar e instanciar um objeto */
         const getCliente = async () => {

@@ -10,7 +10,6 @@ b) quantos anos essa pessoa terá em 2030;
 
 var hora = new Date();
 var ano = hora.getFullYear();
-console.log(hora);
 console.log(ano);
 
 var anoNasc="string";

@@ -112,12 +112,12 @@ export const CadastrarServico = () => {
                     {/* outline so recebe foco quando tiver o mouse em cima */}
                     {status.formSave ? /* <-- se for true \/ */
                         <Button type="submit" outline color="info" disabled>Salvando...
-                        <Spinner size="sm" color="info" />
+                        <Spinner size="sm" color="primary" children="" />{/* cildren necessario para não bugar! */}
                         </Button> : /* <- caso contrario\/*/
                         <Button type="submit" outline color="info">Cadastrar</Button>}
                         {/* criar um botao de reset */}
+                        <Button type="reset" outline color="success">Limpar</Button>
                 </Form>
-
             </Container>
         </div>
     )
