@@ -28,11 +28,39 @@ export const VisualizarCliente = () => {
     useEffect(() => {
         getClientes();
     }, []);
+
+    const apagarCliente = async (idCliente) => {
+        console.log(idCliente);
+
+        const headers = {
+            "Content-Type": "application/json"
+        }
+        await axios.delete(api + "/apagarcliente/" + idCliente, { headers })
+            .then((response) => {
+                console.log(response.data.error);
+                getClientes();/* <-- função para atualizar a página */
+            })
+            .catch(() => {
+                setStatus({
+                    type: "error",
+                    message: "Erro: Não foi possível se conectar a API"
+                });
+            })
+    }
+
     return (
         <div className="p-3">
             <Container>
                 {status.type === "Error" ? <Alert color="danger">{status.message}</Alert> : ""}
-
+                <div className="mr-auto p-2">
+                    <h1>Informações dos Clientes</h1>
+                </div>
+                <div className="p-2">
+                    <Link to="/cadastrarcliente"
+                        className="btn btn-outline-primary btn-sm">
+                        Cadastrar Cliente
+                    </Link>
+                </div>
                 <Table striped dark hover>
                     <thead>
                         <tr>
@@ -41,7 +69,7 @@ export const VisualizarCliente = () => {
                             <th>Cidade</th>
                             <th>UF</th>
                             <th>Nascimento</th>
-                            <th>Ações</th>
+                            <th>Ações</th>   
                         </tr>
                     </thead>
                     <tbody>
@@ -56,6 +84,10 @@ export const VisualizarCliente = () => {
                                     <Link to={"/cliente/" + item.id}
                                         className="btn btn-outline-primary btn-sm">Consultar
                                     </Link>
+                                    <Link to={"/editarcliente/" + item.id}
+                                        className="btn btn-outline-warning btn-sm m-1">Editar</Link>
+                                    <span className="btn btn-outline-danger btn-sm m-1"
+                                        onClick={() => apagarCliente(item.id)}>Excluir</span>
                                 </td>
                             </tr>
                         ))}

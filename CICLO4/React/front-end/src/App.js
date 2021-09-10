@@ -8,6 +8,8 @@ import { Cliente } from './views/Cliente/Cliente';
 import { VisualizarCliente } from './views/Cliente/VisualizarCliente';
 import { CadastrarServico } from './views/Servico/CadastrarServico';
 import { EditarServico } from './views/Servico/EditarServico';
+import { CadastrarCliente } from './views/Cliente/CadastrarCliente';
+import { EditarCliente } from './views/Cliente/EditarCliente';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/editarservico/:id" component={EditarServico} />
           <Route path="/visualizarcliente" component={VisualizarCliente} />
           <Route path="/cliente/:id" component={Cliente} />
+          <Route path="/cadastrarcliente" component={CadastrarCliente} />
+          <Route path="/editarcliente/:id" component={EditarCliente} />
         </Switch>
       </Router>
     </div>

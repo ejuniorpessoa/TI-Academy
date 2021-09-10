@@ -32,7 +32,7 @@ export const Cliente = (props) => {/* props = propriedades passadas */
                     <div className="p-2">
                         <Link to="/visualizarcliente"
                             className="btn btn-outline-primary btn-sm">
-                            Clientes
+                            Lista de Clientes
                         </Link>
                     </div>
                 </div>

@@ -37,7 +37,7 @@ export const Servico = (props) => {/* props = propriedades passadas */
                         <Link to={"/editarservico/" + data.id}
                             className="btn btn-outline-warning btn-sm m-1">Editar</Link>
                     </div>
-                </div>                
+                </div>
                 <dl className="row">
                     <dt className="col-sm-3">Nome</dt>
                     <dd className="col-sm-9">{data.nome}</dd>

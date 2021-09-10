@@ -19,10 +19,27 @@ app.get('/', function (req, res) {
 
 // ------------------Aula-01-----------------
 app.post('/clientes', async (req, res) => {
-    let create = await cliente.create(
+
+    await aguardar(3000);
+    function aguardar(ms) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+        });
+    };
+
+    await cliente.create(
         req.body
-    );
-    res.send('Novo cliente cadastrado!');
+    ).then(() => {
+        return res.json({
+            type: "success",
+            message: "Cliente foi criado com sucesso."
+        });
+    }).catch((erro)=>{
+        return res.status(400).json({
+            type: "error",
+            message:"Erro no cadastro de Cliente."
+        });
+    });
 });
 
 app.post('/pedidos', async (req, res) => {
@@ -56,7 +73,7 @@ app.post('/servicos', async (req, res) => {// criar novo serviço
             type: "error",
             message: "Erro na criação de serviço."
         });
-    });    
+    });
 });
 
 
@@ -323,15 +340,15 @@ app.delete('/apagarcliente/:id', (req, res) => {
     });
 });
 
-app.delete('/apagarservico/:id',(req,res)=>{
+app.delete('/apagarservico/:id', (req, res) => {
     servico.destroy({
-        where: {id:req.params.id}
-    }).then(function(){
+        where: { id: req.params.id }
+    }).then(function () {
         return res.json({
             error: false,
             message: "Serviço excluído com sucesso."
         });
-    }).catch(function(){
+    }).catch(function () {
         return res.status(400).json({
             error: true,
             message: "Não foi possível excluir o serviço."

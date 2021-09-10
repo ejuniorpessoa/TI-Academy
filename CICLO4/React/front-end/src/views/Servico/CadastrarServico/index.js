@@ -22,7 +22,6 @@ export const CadastrarServico = () => {
 
     /* passa o o objeto dentro da função */
     const valorInput = e => setServico({
-        /* ... representa todos os objetos de servico */
         /* pegar o nome do atributo "e" e do formulario e atribui a nome e descricao */
         /* ... pega all servico, [função pega todos as descrições acima de "e"] :<-- (atribuição, ex nome:) e. pega os itens no cadastro preenchido */
         ...servico, [e.target.name]: e.target.value
@@ -81,7 +80,7 @@ export const CadastrarServico = () => {
                     <div className="p-2">
                         <Link to="/visualizarservico"/* aqui continua pq vai ter um botao que quando clicado em Visualizar ele volta */
                             className="btn btn-outline-primary btn-sm">
-                            Listar de Serviços
+                            Lista de Serviços
                         </Link>
                     </div>
                 </div>
@@ -116,7 +115,7 @@ export const CadastrarServico = () => {
                         </Button> : /* <- caso contrario\/*/
                         <Button type="submit" outline color="info">Cadastrar</Button>}
                         {/* criar um botao de reset */}
-                        <Button type="reset" outline color="success">Limpar</Button>
+                        <Button type="reset" outline color="success m-1">Limpar</Button>
                 </Form>
             </Container>
         </div>
