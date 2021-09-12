@@ -14,6 +14,7 @@ export const Servico = (props) => {/* props = propriedades passadas */
         const getServico = async () => {
             await axios.get(api + "/servico/" + id)
                 .then((response) => {
+                    console.log(response.data.servico);
                     setData(response.data.servico);/* linha que buga!! */
                 }).catch(() => {
                     console.log("Erro: Não foi possível conectar a API.")

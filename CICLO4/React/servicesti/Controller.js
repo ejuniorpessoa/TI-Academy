@@ -34,19 +34,35 @@ app.post('/clientes', async (req, res) => {
             type: "success",
             message: "Cliente foi criado com sucesso."
         });
-    }).catch((erro)=>{
+    }).catch((erro) => {
         return res.status(400).json({
             type: "error",
-            message:"Erro no cadastro de Cliente."
+            message: "Erro no cadastro de Cliente."
         });
     });
 });
 
 app.post('/pedidos', async (req, res) => {
-    let create = await pedido.create(
-        req.body
-    );
-    res.send('Novo pedido cadastrado!');
+    await aguardar(3000);
+    function aguardar(ms){
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+        });
+    };
+
+    await pedido.create(
+        req.body 
+    ).then(() => {
+        return res.json({
+            type: "success",
+            message: "Pedido foi criado com sucesso."
+        });
+    }).catch((erro) => {
+        return res.status(400).json({
+            type: "error",
+            message: "Erro na criação de pedido."
+        });
+    });
 });
 
 // ------------------Aula-02-----------------
@@ -169,17 +185,25 @@ app.get('/servico/:id', async (req, res) => { // 1 serviço por vez
         }); // caso nao de certo acima
 }) // retorna o servico com base no id que vou colocar
 
+
 //------------------Desafio-03----------
 //Total Gasto por Cliente
-app.get('/pedido/:id', async (req, res) => {
-    await pedido.sum('valor', {
-        where: { ClienteId: req.params.id }
-    }).then((pedido) => {
-        return res.json({
-            pedido
-        })
-    });
-});
+
+app.get('/pedido/:id', async (req, res) => { 
+    await pedido.findByPk(req.params.id) 
+        .then(pedido => {
+            return res.json({
+                error: false, 
+                pedido
+            });
+        }).catch(function (error) {
+            return res.status(400).json({
+                error: true,
+                message: "Código não esta cadastrado!"
+            });
+        });
+})
+
 
 //Total de pedido gasto por cliente
 app.get('/pedidoop/:id', async (req, res) => {
@@ -296,15 +320,15 @@ app.put('/editarcliente', (req, res) => {
 });
 
 //---------------------Exercicio 03--------------------
-
-app.put('/atualizarpedido', (req, res) => {
+/* 
+app.put('/editarpedido', (req, res) => {
     pedido.update(req.body, {
         where: {
             Id: req.body.id
         }
     }).then(() => {
         return res.json({
-            error: false,
+            error: false
             message: "Pedido Atualizado"
         })
     }).catch((erro) => {
@@ -313,7 +337,7 @@ app.put('/atualizarpedido', (req, res) => {
             message: "Erro ao atualizar"
         })
     })
-});
+}); */
 
 //-----------------------DELETE-----------------------  
 app.get('/excluircliente', async (req, res) => {
@@ -352,6 +376,22 @@ app.delete('/apagarservico/:id', (req, res) => {
         return res.status(400).json({
             error: true,
             message: "Não foi possível excluir o serviço."
+        });
+    });
+});
+
+app.delete('/apagarpedido/:id', (req, res) => {
+    pedido.destroy({
+        where: { id: req.params.id }
+    }).then(function () {
+        return res.json({
+            error: false,
+            message: "Pedido excluído com sucesso."
+        });
+    }).catch(function () {
+        return res.status(400).json({
+            error: true,
+            message: "Não foi possível excluir o pedido."
         });
     });
 });

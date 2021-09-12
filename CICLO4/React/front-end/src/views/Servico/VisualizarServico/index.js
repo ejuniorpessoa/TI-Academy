@@ -72,7 +72,7 @@ export const VisualizarServico = () => {
                     <div className="p-2">
                         <Link to="/cadastrarservico"
                             className="btn btn-outline-primary btn-sm">
-                            Cadastrar
+                            Cadastrar Serviço
                         </Link>
                     </div>
                 </div>

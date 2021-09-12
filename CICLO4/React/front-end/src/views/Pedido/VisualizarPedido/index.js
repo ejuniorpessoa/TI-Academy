@@ -1,23 +1,24 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
-import { Alert, Container, Table } from "reactstrap"
+import { Alert, Container, Table } from "reactstrap";
 import { api } from "../../../config";
 
-export const VisualizarCliente = () => {
+export const VisualizarPedido = () => {
 
     const [data, setData] = useState([]);
     const [status, setStatus] = useState({
         type: "",
-        message: ""
+        message: "",
     });
 
-    const getClientes = async () => {
-        await axios.get(api + "/listaclientes")
+    const getPedidos = async () => {
+
+        await axios.get(api + "/listapedidos")
             .then((response) => {
-                console.log(response.data.clientes);
-                setData(response.data.clientes);
-            }).catch(() => {
+                console.log(response.data.pedido);
+                setData(response.data.pedido);
+            }).catch((erro) => {
                 setStatus({
                     type: "error",
                     message: "Erro: Não foi possível conectar a API."
@@ -26,19 +27,20 @@ export const VisualizarCliente = () => {
     }
 
     useEffect(() => {
-        getClientes();
+        getPedidos();
     }, []);
-
-    const apagarCliente = async (idCliente) => {
-        console.log(idCliente);
+ 
+    const apagarPedido = async (idPedido) => {
+        console.log(idPedido);
 
         const headers = {
             "Content-Type": "application/json"
         }
-        await axios.delete(api + "/apagarcliente/" + idCliente, { headers })
+
+        await axios.delete(api + "/apagarpedido/" + idPedido, { headers })
             .then((response) => {
                 console.log(response.data.error);
-                getClientes();/* <-- função para atualizar a página */
+                getPedidos();
             })
             .catch(() => {
                 setStatus({
@@ -53,41 +55,39 @@ export const VisualizarCliente = () => {
             <Container>
                 {status.type === "Error" ? <Alert color="danger">{status.message}</Alert> : ""}
                 <div className="mr-auto p-2">
-                    <h1>Informações dos Clientes</h1>
+                    <h1>Informações dos Pedidos</h1>
                 </div>
                 <div className="p-2">
-                    <Link to="/cadastrarcliente"
+                    <Link to="/cadastrarpedido"
                         className="btn btn-outline-primary btn-sm">
-                        Cadastrar Cliente
+                        Cadastrar Pedido
                     </Link>
                 </div>
                 <Table striped dark hover>
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Endereço</th>
-                            <th>Cidade</th>
-                            <th>UF</th>
-                            <th>Nascimento</th>
-                            <th>Ações</th>   
+                            <th>Cliente Id</th>
+                            <th>Serviço Id</th>
+                            <th>Valor</th>
+                            <th>Data</th>                            
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map(item => (
                             <tr key={item.id}>
-                                <td>{item.nome}</td>
-                                <td>{item.endereco}</td>
-                                <td>{item.cidade}</td>
-                                <td>{item.uf}</td>
-                                <td>{item.nascimento}</td>
+                                <td>{item.ClienteId}</td>
+                                <td>{item.ServicoId}</td>
+                                <td>{item.valor}</td>
+                                <td>{item.data}</td>
                                 <td className="text-center">
-                                    <Link to={"/cliente/" + item.id}
+                                    <Link to={"/pedido/" + item.id}
                                         className="btn btn-outline-primary btn-sm">Consultar
                                     </Link>
-                                    <Link to={"/editarcliente/" + item.id}
+                                    <Link to={"/editarpedido/" + item.id}
                                         className="btn btn-outline-warning btn-sm m-1">Editar</Link>
                                     <span className="btn btn-outline-danger btn-sm m-1"
-                                        onClick={() => apagarCliente(item.id)}>Excluir</span>
+                                        onClick={() => apagarPedido(item.id)}>Excluir</span>
                                 </td>
                             </tr>
                         ))}
@@ -95,5 +95,5 @@ export const VisualizarCliente = () => {
                 </Table>
             </Container>
         </div>
-    );
+    )
 }
