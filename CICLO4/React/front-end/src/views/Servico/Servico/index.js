@@ -33,7 +33,7 @@ export const Servico = (props) => {/* props = propriedades passadas */
                     <div className="p-2">
                         <Link to="/visualizarservico"
                             className="btn btn-outline-primary btn-sm">
-                            Serviços
+                            Lista de Serviços
                         </Link>
                         <Link to={"/editarservico/" + data.id}
                             className="btn btn-outline-warning btn-sm m-1">Editar</Link>
