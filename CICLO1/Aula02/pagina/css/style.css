@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: greenyellow;
+}
+
+main { /* elemento pai */
+	width: 80%;
+	height: auto; /* deixar auto para se adequar conforme tem conteúdo, se não buga tudo! */
+	background-color: cyan;
+	margin: 0 auto; /*top , direita, base, left  /  auto condiciona as proporções a se posicionar no meio ou no centro*/
+	margin-top: 10px;
+	display: flex;
+	padding: 3px;
+	flex-direction: column; /* COLUMN COLUCA / ROW LINHA / Coloca uma coluna em baixo da outra, OBRIGATORIAMENTE NO PAI (MAIN)*/	
+}
+
+.quadrado {/* elemento chield */
+	border: 1px solid #000; /*tamanho, solida, cor*/
+	margin: 2px;
+	background-color: darkred;
+	color: white; /* ou #fff */
+	font-family: verdana, arial, cursive;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;/*funciona com tipo flex*/
+	align-items: center ;/*funciona com tipo flex se não, não vai funfa!*/
+}
+
+.ajuste-margem {
+	margin-top: 2px;
+}
+
+div {
+	width: 50px;
+	height: 50px;
+}
+
+.estante {
+	display: flex;
+	width: 100%;
+	height: 60px;/* depois tem explicação */
+	background-color: #880e4f;
+	justify-content: space-between; /* espaçados iguais no container */
+	/*justify-content: space-around; /* curiosidade espaçamento ao redor  */*/
+}
+
+.center { /* manter hierarquia sempre no CSS */
+	justify-content: center; /* verticalmente */
+	align-items: center; /* alinhar o iten horizontalmente */
+
+}
+
+.circ {
+	background-color: #015793;
+	border-radius: 100%; /* deixa redondin , melhor usar % do que em px */
+}
+
+.link {
+	width: 100%;
+	height: auto;
+	padding: 20px;
+}
+
+.voltar {
+	padding: 10px;
+	width: 100px;
+	background-color: #1A237E;
+	color: #fff; /*  branco */
+	text-decoration: none;/* sem sublinhado ou decoração */
+}
+
+.voltar:hover {
+	background-color: #C2185B ;
+}
